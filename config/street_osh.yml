@@ -1,0 +1,88 @@
+# Scraper for the OCCRP web site.
+# The goal is not to download all HTML, but only PDFs & other documents
+# linked from the page as proof.
+name: street_osh
+
+# A title for display in the UI:
+description: 'gosreg_kg'
+
+# Uncomment to run this scraper automatically:
+schedule: daily
+delay: 1
+stealthy: true
+pipeline:
+
+  init:
+    # This first stage will get the ball rolling with a seed URL.
+    method: seed
+    params:
+      urls:
+        - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort 
+    handle:
+      pass: fetch
+
+  fetch:
+    # Download the seed page
+    method: fetch
+    params:
+      # These rules specify which pages should be scraped or included:
+      rules:
+        and:
+          - domain: http://address.darek.gosreg.kg/
+    handle:
+      pass: parse
+
+  parse:
+    # Parse the scraped pages to find if they contain additional links.
+    method: grs.kg_street_osh_parse:parse
+    handle:
+      # this makes it a recursive web crawler:
+      store: extractdata
+      fetch: fetch
+  
+  extractdata:
+    # Parse the scraped pages to extract useful information
+    method: grs.kg_street_osh:extractdata
+    handle:
+      pass: store
+
+
+  store:
+    # Store the crawled documents to a directory
+    method: db
+    params:
+      table: "street_osh_kg"
+      unique:
+        - url,
+        - name_ru,
+        - full_name_kg,
+        - short_name_kg,
+        - short_name_ru,
+        - legal_form,
+        - foreign_participation,
+        - registration_number,
+        #- okpo,
+        - inn,
+        - region,
+        - district,
+        - city,
+        - microdistr,
+        - street,
+        - home,
+        - appartment,
+        - phone,
+        - fax,
+        - mail,
+        - Rereg,
+        - Date Order,
+        - First date reg,
+        - Method of creating,
+        - Type of ownership,
+        - head_name_sur,
+        - main_activity_type,
+        - eco_activity_code,
+        - participants_phys_quan,
+        - participants_jur_quan,
+        - participants_total,
+        - participants,
+        - participant
