@@ -41,7 +41,7 @@ def extractdata(context, data):
     participant = _gettext(page.xpath("//span[contains(text(),'Учредитель')]/../../following-sibling::td//text()"))
 
     org_data = {
-        "url": response.url,
+        "url": response_url,
         "name_ru": name_ru,
 		"full_name_kg": full_name_kg,
 		"short_name_kg": short_name_kg,
