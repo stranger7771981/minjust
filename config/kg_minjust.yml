@@ -6,6 +6,7 @@ name: kg_minjust
 # A title for display in the UI:
 description: 'State registry of Kyrgyz legal entities'
 
+
 # Uncomment to run this scraper automatically:
 schedule: daily
 delay: 1

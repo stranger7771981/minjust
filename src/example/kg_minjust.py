@@ -5,6 +5,7 @@ def extractdata(context, data):
     url = response.url
     page = response.html
 
+
     # Parse the rest of the page to extract structured data.
 
     name_ru = _gettext(page.xpath("//span[contains(text(),'2. П')]/../../following-sibling::td//text()"))
