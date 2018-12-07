@@ -42,7 +42,7 @@ pipeline:
   
   extractdata:
     # Parse the scraped pages to extract useful information
-    method: example.kg_street_osh:extractdata
+    method: example.street_osh:extractdata
     handle:
       pass: store
 
@@ -51,7 +51,7 @@ pipeline:
     # Store the crawled documents to a directory
     method: db
     params:
-      table: "street_osh_kg"
+      table: "street_osh"
       unique:
         - url,
         - street
