@@ -34,7 +34,7 @@ pipeline:
 
   parse:
     # Parse the scraped pages to find if they contain additional links.
-    method: example.kg_street_osh_parse:parse
+    method: parse
     handle:
       # this makes it a recursive web crawler:
       store: extractdata
