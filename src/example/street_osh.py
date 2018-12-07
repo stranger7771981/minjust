@@ -25,9 +25,9 @@ def extractdata(context, data):
         data = result[street]
         
     context.emit(data=org_data)
-
-    def _gettext(list):
-        if not list:
-            return list
-        else:
-            return list[0].strip()
+    
+def _gettext(list):
+    if not list:
+        return list
+    else:
+        return list[0].strip()
