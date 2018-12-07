@@ -18,11 +18,12 @@ def extractdata(context, data):
     }
     
 
-for i in range(len(page)):
+for i in range(len(rows)):
     j = i+1
     result = {}
     street = _gettext((tree.xpath('//tbody/tr['+str(j)+']/td[3]//p/text()')))
     result[street] = street
+    emit = result
 	
     context.emit(data=org_data)
 
