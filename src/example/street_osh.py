@@ -17,18 +17,17 @@ def extractdata(context, data):
 		
     }
     
-
+    result = {}
     for i in range(len('//tbody/tr')):
         j = i+1
-        result = {}
         street = _gettext((page.xpath('//tbody/tr['+str(j)+']/td[3]//p/text()')))
         result[street] = street
         data = result[street]
-        context.emit(data=org_data)
-
-def _gettext(list):
-    if not list:
-        return list
-    else:
-        return list[0].strip()
         
+    context.emit(data=org_data)
+
+    def _gettext(list):
+        if not list:
+            return list
+        else:
+            return list[0].strip()
