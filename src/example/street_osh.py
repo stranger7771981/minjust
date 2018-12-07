@@ -17,6 +17,12 @@ def extractdata(context, data):
 		
     }
     
+    def _gettext(list):
+        if not list:
+            return list
+        else:
+            return list[0].strip()
+    
     result = {}
     for i in range(len('//tbody/tr')):
         j = i+1
@@ -26,8 +32,4 @@ def extractdata(context, data):
         
     context.emit(data=org_data)
     
-def _gettext(list):
-    if not list:
-        return list
-    else:
-        return list[0].strip()
+
