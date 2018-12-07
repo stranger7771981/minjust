@@ -18,9 +18,9 @@ def extractdata(context, data):
     }
     
 
-    for i in range(len(page)):
+    for i in range(len(tbody/tr['17'])):
         j = i+1
-        #result = {}
+        result = {}
         street = _gettext((page.xpath('//tbody/tr['+str(j)+']/td[3]//p/text()')))
         result[street] = street
         emit = result
