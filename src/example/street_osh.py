@@ -23,7 +23,7 @@ def extractdata(context, data):
         result = {}
         street = _gettext((page.xpath('//tbody/tr['+str(j)+']/td[3]//p/text()')))
         result[street] = street
-        emit = result
+        emit = data(result)
         context.emit(data=org_data)
 
 def _gettext(list):
