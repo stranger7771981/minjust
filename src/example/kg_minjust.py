@@ -85,11 +85,11 @@ def clean_dict(items):
         else:
             result[key] = items[key]
     return result
-
-
+	
+ 
     context.emit(data=org_data)
 
-def _gettext(list):
+def _gett xt(list):
     if not list:
         return list
     else:
