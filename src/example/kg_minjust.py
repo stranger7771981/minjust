@@ -87,8 +87,11 @@ def clean_dict(items):
         else:
             result[key] = items[key]
     return result
-	
+    
+    
     clean_org_data = clean_dict(org_data)
+    print(-------------------------------------print----------------------------------------)
+    print(clean_org_data)
     context.emit(data=clean_org_data)
 
 def _gettext(list):
