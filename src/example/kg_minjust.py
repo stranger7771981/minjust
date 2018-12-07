@@ -76,6 +76,8 @@ def extractdata(context, data):
 		"participant": participant
     }
     
+    print(org_data)
+    
 def clean_dict(items):
     result = {}
     for key, value in items.items():
