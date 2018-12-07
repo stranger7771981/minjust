@@ -8,7 +8,7 @@ def extractdata(context, data):
     # Parse the rest of the page to extract structured data.
 
    
-    street = _gettext(page.xpath("//tbody/tr['+str(j)+']/td[3]//p/text()"))
+    street = _gettext(page.xpath("//tbody/tr['+str(j)+']/td[3]"))
    
 
     org_data = {
