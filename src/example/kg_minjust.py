@@ -75,7 +75,10 @@ def extractdata(context, data):
 		"participants": participants,
 		"participant": participant
     }
+    clean_org_data = clean_dict(org_data)
+    context.emit(data=clean_org_data)
     
+    print("-------------------------------------org_data-------------------------------------")
     print(org_data)
     
 def clean_dict(items):
@@ -89,11 +92,7 @@ def clean_dict(items):
     return result
     
     
-clean_org_data = clean_dict(org_data)
-print('-------------------------------------PRINT----------------------------------------')
-print(clean_org_data)
-context.emit(data=clean_org_data)
-print('-------------------------------------FIN----------------------------------------')
+        
     
     
 def _gettext(list):
