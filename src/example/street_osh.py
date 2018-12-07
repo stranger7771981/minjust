@@ -21,7 +21,7 @@ def extractdata(context, data):
     for i in range(len(page)):
         j = i+1
         result = {}
-        street = _gettext((tree.xpath('//tbody/tr['+str(j)+']/td[3]//p/text()')))
+        street = _gettext((page.xpath('//tbody/tr['+str(j)+']/td[3]//p/text()')))
         result[street] = street
         emit = result
 	
