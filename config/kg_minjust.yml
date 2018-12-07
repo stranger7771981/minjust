@@ -61,7 +61,7 @@ pipeline:
         - legal_form,
         - foreign_participation,
         - registration_number,
-        #- okpo,
+        - okpo,
         - inn,
         - region,
         - district,

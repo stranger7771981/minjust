@@ -14,7 +14,7 @@ def extractdata(context, data):
     legal_form = _gettext(page.xpath("//span[contains(text(),'5. О')]/../../following-sibling::td//text()"))
     foreign_participation = _gettext(page.xpath("//span[contains(text(),'6. Е')]/../../following-sibling::td//text()"))
     registration_number = _gettext(page.xpath("//span[contains(text(),'7. Р')]/../../following-sibling::td//text()"))
-   #okpo = _gettext(page.xpath("//span[contains(text(),'8. Р')]/../../following-sibling::td//text()"))
+    okpo = _gettext(page.xpath("//span[contains(text(),'8. Р')]/../../following-sibling::td//text()"))
     inn = _gettext(page.xpath("//span[contains(text(),'9. И')]/../../following-sibling::td//text()"))
     region = _gettext(page.xpath("//span[contains(text(),'10. О')]/../../following-sibling::td//text()"))
     district = _gettext(page.xpath("//span[contains(text(),'11. Р')]/../../following-sibling::td//text()"))
@@ -26,11 +26,11 @@ def extractdata(context, data):
     phone = _gettext(page.xpath("//span[contains(text(),'17. Т')]/../../following-sibling::td//text()"))
     fax = _gettext(page.xpath("//span[contains(text(),'18. Ф')]/../../following-sibling::td//text()"))
     mail = _gettext(page.xpath("//span[contains(text(),'19. Э')]/../../following-sibling::td//text()"))
-    Rereg = _gettext(page.xpath("//span[contains(text(),'20. Г')]/../../following-sibling::td//text()"))
-    Date_Order = _gettext(page.xpath("//span[contains(text(),'21. Д')]/../../following-sibling::td//text()"))
-    First_date = _gettext(page.xpath("//span[contains(text(),'22. Д')]/../../following-sibling::td//text()"))
-    Method_of_creating = _gettext(page.xpath("//span[contains(text(),'23. С')]/../../following-sibling::td//text()"))
-    Type_of_ownership = _gettext(page.xpath("//span[contains(text(),'24. Ф')]/../../following-sibling::td//text()"))                        
+    rereg = _gettext(page.xpath("//span[contains(text(),'20. Г')]/../../following-sibling::td//text()"))
+    date_Order = _gettext(page.xpath("//span[contains(text(),'21. Д')]/../../following-sibling::td//text()"))
+    first_date = _gettext(page.xpath("//span[contains(text(),'22. Д')]/../../following-sibling::td//text()"))
+    method_of_creating = _gettext(page.xpath("//span[contains(text(),'23. С')]/../../following-sibling::td//text()"))
+    type_of_ownership = _gettext(page.xpath("//span[contains(text(),'24. Ф')]/../../following-sibling::td//text()"))                        
     head_name_sur = _gettext(page.xpath("//span[contains(text(),'25. Ф')]/../../following-sibling::td//text()"))
     main_activity_type = _gettext(page.xpath("//span[contains(text(),'26. О')]/../../following-sibling::td//text()"))
     eco_activity_code = _gettext(page.xpath("//span[contains(text(),'27. К')]/../../following-sibling::td//text()"))
@@ -49,7 +49,7 @@ def extractdata(context, data):
 		"legal_form": legal_form,
 		"foreign_participation": foreign_participation,
 		"registration_number": registration_number,
-		#"okpo": okpo,
+		"okpo": okpo,
 		"inn": inn,
 		"region": region,
 		"district": district,
@@ -76,7 +76,17 @@ def extractdata(context, data):
 		"participant": participant
     }
     
-	
+def clean_dict(items):
+    result = {}
+    for key, value in items.items():
+        if value is None or value == '' or value == []:
+            value = '---'
+            result[key] = value
+        else:
+            result[key] = items[key]
+    return result
+
+
     context.emit(data=org_data)
 
 def _gettext(list):
