@@ -89,7 +89,7 @@ def clean_dict(items):
  
     context.emit(data=org_data)
 
-def _gett xt(list):
+def _gettext(list):
     if not list:
         return list
     else:
