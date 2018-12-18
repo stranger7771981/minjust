@@ -19,7 +19,7 @@ def extractdata(context, data):
         "url": response.url,
         "street": street,
         }
-    context.emit(data=org_data)
+        context.emit(data=org_data)
 
 
 def _gettext(list):
