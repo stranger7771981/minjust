@@ -7,7 +7,7 @@ name: street_osh
 description: 'gosreg_kg'
 
 # Uncomment to run this scraper automatically:
-schedule: daily
+schedule: monthly
 delay: 1
 stealthy: true
 pipeline:
@@ -55,6 +55,6 @@ pipeline:
     # Store the crawled documents to a directory
     method: db
     params:
-      table: "grs_osh"
+      table: "street"
       unique:
       
