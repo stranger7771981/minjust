@@ -55,6 +55,6 @@ pipeline:
     # Store the crawled documents to a directory
     method: db
     params:
-      table: "street_osh"
+      table: "grs_osh"
       unique:
       
