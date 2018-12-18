@@ -11,7 +11,7 @@ def extractdata(context, data):
 
     for i in range(len(streets)):
         street = page.xpath('//tbody/tr['+str(i)+']/td[3]//p/text()')
-        if (len(street)> 0:
+        if (len(street)> 0):
             street_str = street[0]
         else:
             street_str = street
