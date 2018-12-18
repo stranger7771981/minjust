@@ -17,7 +17,7 @@ pipeline:
     method: seed
     params:
       urls:
-        - http://address.darek.gosreg.kg/
+        - http://address.darek.gosreg.kg/search/
     handle:
       pass: fetch
 
@@ -51,5 +51,3 @@ pipeline:
     method: db
     params:
       table: "street_osh"
-      unique:
-        - url
