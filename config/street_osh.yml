@@ -53,5 +53,3 @@ pipeline:
     params:
       table: "street_osh"
       unique:
-        - url,
-        - street
