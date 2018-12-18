@@ -17,7 +17,7 @@ pipeline:
     method: seed
     params:
       urls:
-        - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort 
+        - http://address.darek.gosreg.kg/
     handle:
       pass: fetch
 
