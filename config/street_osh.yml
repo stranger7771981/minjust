@@ -28,13 +28,18 @@ pipeline:
       # These rules specify which pages should be scraped or included:
       rules:
         and:
-          - domain: http://address.darek.gosreg.kg/
+          - domain: http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort
     handle:
       pass: parse
 
   parse:
     # Parse the scraped pages to find if they contain additional links.
     method: parse
+    params:
+      store:
+        and:
+          - pattern: 'http://address.darek.gosreg.kg/'
+          
     handle:
       # this makes it a recursive web crawler:
       store: extractdata
@@ -51,3 +56,5 @@ pipeline:
     method: db
     params:
       table: "street_osh"
+      unique:
+      
