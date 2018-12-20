@@ -10,11 +10,12 @@ def extractdata(context, data):
 
     for i in range(len(page.xpath('//tbody/tr'))):
         i=i+1
+        name_city = (_gettext(page.xpath('//tbody/tr['+str(i)+']/td[7]/text()')))
         id_street = (_gettext(page.xpath('//tbody/tr['+str(i)+']/td[2]/text()')))
         street_kg = (_gettext(page.xpath('//tbody/tr['+str(i)+']/td[3]/div/p/text()')))
 
-
         org_data = {
+        "name_city": name_city,
         "id_street": id_street,
         "street_kg": street_kg,
         }
