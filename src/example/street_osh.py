@@ -7,24 +7,37 @@ def extractdata(context, data):
 
     # Parse the rest of the page to extract structured data.
 
-    streets = page.xpath("//td[3]/div[@class='list-street']/p")
 
-    for i in range(len(streets)):
-        street = page.xpath('//tbody/tr['+str(i)+']/td[3]//p/text()')
-        if (len(street)> 0):
-            street_str = street[0]
-        else:
-            street_str = street
+    for i in range(len(page.xpath('//tbody/tr'))):
+        i=i+1
+        id_street = (_gettext(page.xpath('//tbody/tr['+str(i)+']/td[2]/text()')))
+        street_kg = (_gettext(page.xpath('//tbody/tr['+str(i)+']/td[3]/div/p/text()')))
+
+
         org_data = {
-        "url": response.url,
-        "street": street,
+        "id_street": id_street,
+        "street_kg": street_kg,
         }
+
         context.emit(data=org_data)
+        print("------------------------------------ORG_DATA--------------------------------------")
+        print(org_data)
+
+
+def clean_dict(data):
+    result = {}
+    for key, value in data.items():
+        if value is None or value == '' or value == []:
+            value = '--'
+            result[key] = value
+        else:
+            result[key] = data[key]
+    return result
 
 
 def _gettext(list):
     if not list:
         return list
     else:
-        print (list)
+        return list[0].strip()
 

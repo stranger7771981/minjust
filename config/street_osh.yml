@@ -4,7 +4,7 @@
 name: street_osh
 
 # A title for display in the UI:
-description: 'gosreg_kg'
+description: 'street from gosreg_kg'
 
 # Uncomment to run this scraper automatically:
 schedule: monthly
@@ -55,6 +55,6 @@ pipeline:
     # Store the crawled documents to a directory
     method: db
     params:
-      table: "street"
+      table: "grs"
       unique:
       
