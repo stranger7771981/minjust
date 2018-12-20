@@ -1,7 +1,7 @@
 # Scraper for the OCCRP web site.
 # The goal is not to download all HTML, but only PDFs & other documents
 # linked from the page as proof.
-name: street_osh
+name: street_osh_kyrgyzstan
 
 # A title for display in the UI:
 description: 'street from gosreg_kg'
@@ -57,5 +57,6 @@ pipeline:
     method: db
     params:
       table: "grs"
-      unique:
+      unique: 
+         - id_street
       
