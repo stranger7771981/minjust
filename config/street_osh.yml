@@ -18,6 +18,7 @@ pipeline:
     params:
       urls:
         - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort
+        - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort&page=2
     handle:
       pass: fetch
 
