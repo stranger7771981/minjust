@@ -17,10 +17,8 @@ pipeline:
     method: seed
     params:
       urls:
-          for i in range(len(http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort&page=1)):
-          i=i+1
-        #- http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort
-        #- http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort&page=1
+         - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort
+         - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort&page=2
     handle:
       pass: fetch
 
