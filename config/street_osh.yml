@@ -1,10 +1,10 @@
 # Scraper for the OCCRP web site.
 # The goal is not to download all HTML, but only PDFs & other documents
 # linked from the page as proof.
-name: street_osh_kyrgyzstan
+name: adres_grs
 
 # A title for display in the UI:
-description: 'street from gosreg_kg'
+description: 'streets from grs'
 
 # Uncomment to run this scraper automatically:
 schedule: monthly
@@ -17,8 +17,7 @@ pipeline:
     method: seed
     params:
       urls:
-         - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort
-         - http://address.darek.gosreg.kg/search/street/7412?streetType=0&streetName=&filter=sort&page=2
+        - http://address.darek.gosreg.kg/search/street/4948?filter=ate&page=1&streetType=0
     handle:
       pass: fetch
 
@@ -35,7 +34,7 @@ pipeline:
 
   parse:
     # Parse the scraped pages to find if they contain additional links.
-    method: parse
+    method: example.adres_grs:extractdata
     params:
       store:
         and:
@@ -43,20 +42,13 @@ pipeline:
           
     handle:
       # this makes it a recursive web crawler:
-      store: extractdata
+      store: store
       fetch: fetch
-  
-  extractdata:
-    # Parse the scraped pages to extract useful information
-    method: example.street_osh:extractdata
-    handle:
-      pass: store
 
   store:
     # Store the crawled documents to a directory
     method: db
     params:
       table: "grs"
-      unique: 
-         - id_street
-      
+      unique:
+        - id_street
